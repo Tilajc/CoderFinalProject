@@ -1,7 +1,8 @@
 <nav>
-    <a href="home">home</a>
-    <a href="about">about</a>
-    <a href="blogs">blogs</a>
-    <a href="login">login</a>
+    <a href="{% url 'Home' %}">Home</a>
+    <a href="{% url 'About' %}">About</a>
+    <a href="{% url 'Blogs' %}">Blogs</a>
+    <a href="{% url 'Signup' %}">Signup</a>
+    <a href="{% url 'Login' %}">login</a>
     <a href="logout">logout</a>
 </nav>

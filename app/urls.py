@@ -18,9 +18,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from app.views import home, about
+from app.views import home, about, blogs
 
 urlpatterns = [
-    path('home/', home),
-    path('about/', about)
+    path('home/', home, name="Home"),
+    path('about/', about, name="About"),
+    path('blogs/', blogs, name="Blogs"),
 ]
