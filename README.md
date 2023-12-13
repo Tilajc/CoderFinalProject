@@ -1,10 +1,14 @@
 # Proyecto Coder
 
-La app es un blog en el cual tiene rol de administrador y usuario, donde los usuarios pueden comentar, y los administradores pueden editar y eliminar entre otras cosas
+La app es un blog sobre el desarrollo de un juego en el cual tiene los siguientes roles: 
+
+* Administrador: el cual puede realizar publicaciones en su blog, ver lista de usuarios y Eliminarlos, Comentar, y Autogestionarse.
+* Usuario Registrado: comentar los blogs y Autogestionarse.
+* Usuario no Registrado: El cual puede ver los blogs.
 
 ### Clone the app
 
-    git clone https://github.com/Tilajc/Tercera-pre-entrega-Tilatti.git
+    git clone https://github.com/Tilajc/CoderFinalProject.git
  
 ### Setup venv
 
