@@ -2,7 +2,12 @@
     <a href="{% url 'Home' %}">Home</a>
     <a href="{% url 'About' %}">About</a>
     <a href="{% url 'Blogs' %}">Blogs</a>
+    {% if user.is_authenticated %}
+    <a href="{% url 'Profile' %}">Profile</a>
+    <img src="{{ user.avatar.IMG.url }}" style="height:40px">
+    <a href="{% url 'Logout' %}">Logout</a>
+    {% else %}
     <a href="{% url 'Signup' %}">Signup</a>
     <a href="{% url 'Login' %}">Login</a>
-    <a href="{% url 'Logout' %}">Logout</a>
+    {% endif %}
 </nav>
