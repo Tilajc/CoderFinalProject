@@ -1,6 +1,5 @@
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.forms import AuthenticationForm
-from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
 
 from accounts.forms import SignUpForm, UpdateForm
@@ -61,7 +60,8 @@ def update(request):
     form = UpdateForm(initial={"username": user.username, "email": user.email, "first_name": user.first_name, "last_name": user.last_name})
 
     context = {
-        "form": form
+        "form": form,
+        "page": 'update'
     }
 
     return render(request, "accounts/signup.html", context)
@@ -73,12 +73,3 @@ def profile(request):
         "user": user
     }
     return render(request, "accounts/profile.html", context)
-
-def users(request):
-    users = User.objects.all()
-
-    context = {
-        "users": users
-    }
-
-    return render(request, "accounts/users.html", context)
