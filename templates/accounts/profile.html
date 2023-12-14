@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block main %}
+{% if user.avatar %}
+    <a href="{% url 'UpdateAvatar' %}">
+        <img src="{{ user.avatar.IMG.url }}">
+    </a>
+{% else %}
+    <a href="{% url 'UpdateAvatar' %}">upload your avatar</a>
+{% endif %}
+    <ul>
+        <li>username: {{user.username}}</li>
+        <li>first name: {{user.first_name}}</li>
+        <li>last name: {{user.last_name}}</li>
+    </ul>
+    <a href="{% url 'Update' %}">Edit</a>
+    <a href="{% url 'Delete' %}">Delete</a>
+{% endblock %}

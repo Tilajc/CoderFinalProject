@@ -7,3 +7,13 @@ def home(request):
 
 def about(request):
     return render(request, 'app/about_me.html')
+
+def login_view(request):
+    return render(request, 'accounts/login.html')
+
+def signup_view(request):
+    return render(request, 'accounts/signup.html')
+
+def blogs(request):
+    return render(request, 'app/blogs.html')
+

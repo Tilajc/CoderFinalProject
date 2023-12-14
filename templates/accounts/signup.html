@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block main %}
+    <form action="" method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        {% if page == 'update' %}
+            <input type="submit" value="Actualizar">
+        {% else %}
+            <input type="submit" value="Signup">
+        {% endif %}
+    </form>
+{% endblock %}
