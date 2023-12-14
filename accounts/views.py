@@ -1,5 +1,6 @@
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
 
 from accounts.forms import SignUpForm, UpdateForm
@@ -73,3 +74,8 @@ def profile(request):
         "user": user
     }
     return render(request, "accounts/profile.html", context)
+
+def delete_user(request):
+    user = request.user
+    user.delete()
+    return render(request, "accounts/deleted.html")
