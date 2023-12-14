@@ -1,11 +1,33 @@
+from django.contrib.auth import authenticate, login
 from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
 
 from accounts.forms import SignUpForm, UpdateForm
 
 
-def login(request):
-    return render(request, "accounts/login.html")
+def login_request(request):
+    if request.method == "POST":
+        form = AuthenticationForm(request, data=request.POST)
+
+        if form.is_valid():
+            data = form.cleaned_data
+
+            username = data.get('username')
+            password = data.get('password')
+
+            user = authenticate(username=username, password=password)
+
+            if user:
+                login(request, user)
+
+        return redirect('Profile')
+
+    form = AuthenticationForm()
+    context = {
+        "form": form
+    }
+    return render(request, "accounts/login.html", context)
 
 def signup(request):
     if request.method == "POST":
@@ -34,7 +56,7 @@ def update(request):
             user.last_name = request.POST["last_name"]
 
             user.save()
-            return redirect("Home")
+            return redirect("Profile")
 
     form = UpdateForm(initial={"username": user.username, "email": user.email, "first_name": user.first_name, "last_name": user.last_name})
 
@@ -43,3 +65,20 @@ def update(request):
     }
 
     return render(request, "accounts/signup.html", context)
+
+def profile(request):
+    user = request.user
+
+    context = {
+        "user": user
+    }
+    return render(request, "accounts/profile.html", context)
+
+def users(request):
+    users = User.objects.all()
+
+    context = {
+        "users": users
+    }
+
+    return render(request, "accounts/users.html", context)

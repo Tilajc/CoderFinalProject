@@ -1,5 +1,10 @@
 {% extends 'base.html' %}
 
 {% block main %}
-    <p>Profile Placeholder</p>
+    <ul>
+        <li>username: {{user.username}}</li>
+        <li>first name: {{user.first_name}}</li>
+        <li>last name: {{user.last_name}}</li>
+    </ul>
+    <a href="{% url 'Update' %}">Edit</a>
 {% endblock %}
