@@ -10,7 +10,7 @@ class Post(models.Model):
     body= models.TextField(max_length=300)
     author= models.ForeignKey(User, on_delete=models.CASCADE)
     date= models.DateTimeField(auto_now_add=True)
-    img= models.ImageField(upload_to="blogs_img")
+    img= models.ImageField(upload_to="posts_img")
 
     class Meta:
         ordering = ['-date']
@@ -18,9 +18,9 @@ class Post(models.Model):
     def __str__(self):
         return self.title
 
-class Comments(models.Model):
-    author= models.ForeignKey(User, on_delete=models.CASCADE)
-    blog= models.ForeignKey(Post, on_delete=models.CASCADE)
+class Comment(models.Model):
+    author= models.ForeignKey(User, on_delete=models.CASCADE, related_name='user')
+    post= models.ForeignKey(Post, on_delete=models.CASCADE, related_name='comments')
     message= models.TextField(max_length=500)
     date= models.DateTimeField(auto_now_add=True)
 

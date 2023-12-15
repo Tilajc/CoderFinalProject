@@ -1,10 +1,19 @@
 {% extends "base.html" %}
 
 {% block main %}
-    <h2>Title = {{post.title}}</h2>
-    <p>Version = {{post.version}}</p>
-    <p>Subtitle = {{post.subtitle}}</p>
-    <p>body = {{post.body}}</p>
-    <p>Author = {{post.author}}</p>
-    <p>Date = {{post.date}}</p>
+    <p>Date: {{post.date}}</p>
+    <img src="{{ post.img.url }}" style="height: 120px">
+    <h2>Title: {{post.title}}</h2>
+    <p>Subtitle: {{post.subtitle}}</p>
+    <p>Version: {{post.version}}</p>
+    <p>body: {{post.body}}</p>
+    <p>Author: {{post.author}}</p>
+    <h3>Comentarios:</h3>
+    <a href="{% url 'CreateComment' %}">comentar</a>
+    <p>{{post.author.avatar.url}}</p>
+    {% for comment in post.comments.all %}
+        <img src="{{ comment.author.avatar.IMG.url }}" style="width: 40px">
+        <p>{{ comment.author.username }}: {{ comment.message }}</p>
+        <p>Fecha: {{ comment.date }}</p>
+    {% endfor %}
 {% endblock %}

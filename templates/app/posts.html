@@ -4,6 +4,7 @@
     <a href="{% url 'CreatePost' %}">Crear</a>
     {% for post in object_list %}
         <h2>{{post.title}}</h2>
+        <img src="{{ post.img.url }}" style="height:40px">
         <h3>{{post.subtitle}}</h3>
         <a href="{% url 'PostDetail' post.id %}">Detalles</a>
         <a href="{% url 'UpdatePost' post.id %}">Editar</a>
