@@ -18,12 +18,13 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from app.views import home, about, CreatePost, Posts, UpdatePost, DeletePost
+from app.views import home, about, CreatePost, Posts, UpdatePost, DeletePost, PostDetail
 
 urlpatterns = [
     path('home/', home, name="Home"),
     path('about/', about, name="About"),
     path('posts/', Posts.as_view(), name="Posts"),
+    path('post/<int:pk>', PostDetail.as_view(), name="PostDetail"),
     path('create_post/', CreatePost.as_view(), name="CreatePost"),
     path('update_post/<int:pk>', UpdatePost.as_view(), name="UpdatePost"),
     path('delete_post/<int:pk>', DeletePost.as_view(), name="DeletePost")

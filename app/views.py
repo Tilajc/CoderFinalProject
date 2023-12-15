@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.views.generic import CreateView, ListView, UpdateView, DeleteView
+from django.views.generic import CreateView, ListView, UpdateView, DeleteView, DetailView
 
 from app.models import Post
 
@@ -21,6 +21,10 @@ class CreatePost(CreateView):
 class Posts(ListView):
     model = Post
     template_name = "app/posts.html"
+
+class PostDetail(DetailView):
+    model = Post
+    template_name = "app/post_detail.html"
 
 class UpdatePost(UpdateView):
     model = Post
