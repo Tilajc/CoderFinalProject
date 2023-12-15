@@ -1,7 +1,7 @@
 <nav>
     <a href="{% url 'Home' %}">Home</a>
     <a href="{% url 'About' %}">About</a>
-    <a href="{% url 'Blogs' %}">Blogs</a>
+    <a href="{% url 'Posts' %}">Posts</a>
     {% if user.is_authenticated %}
     <a href="{% url 'Profile' %}">Profile</a>
     <img src="{{ user.avatar.IMG.url }}" style="height:40px">

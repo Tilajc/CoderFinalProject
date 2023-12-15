@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block main %}
+    <a href="{% url 'CreatePost' %}">Crear</a>
+    {% for post in object_list %}
+        <h2>{{post.title}}</h2>
+        <h3>{{post.subtitle}}</h3>
+    {% endfor %}
+{% endblock %}
