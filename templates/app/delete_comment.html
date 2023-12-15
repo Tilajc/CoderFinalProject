@@ -3,7 +3,7 @@
 {% block main %}
     <form method="POST">
         {% csrf_token %}
-        <p>Estas por eliminar el curso {{ object }}, estas seguro/a?</p>
+        <p>Estas por eliminar el comentario {{ object }}, estas seguro/a?</p>
         <input type="submit" value="Eliminar">
     </form>
 {% endblock %}

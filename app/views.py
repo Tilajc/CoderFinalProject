@@ -1,5 +1,6 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render
+from django.urls import reverse
 from django.views.generic import CreateView, ListView, UpdateView, DeleteView, DetailView
 from app.models import Post, Comment
 from django.contrib.auth.decorators import user_passes_test
@@ -50,10 +51,22 @@ class DeletePost(LoginRequiredMixin, DeleteView):
 
 class CreateComment(LoginRequiredMixin, CreateView):
     model = Comment
-    success_url = "/app/posts"
     template_name = "app/create_comment.html"
-    fields = ["post", "message"]
+    fields = ["message"]
 
     def form_valid(self, form):
         form.instance.author = self.request.user
+        post_id = self.kwargs['pk']
+        form.instance.post_id = post_id
         return super().form_valid(form)
+
+    def get_success_url(self):
+        return reverse('PostDetail', kwargs={'pk': self.kwargs['pk']})
+
+class DeleteComment(LoginRequiredMixin, DeleteView):
+    model = Comment
+    template_name = "app/delete_comment.html"
+
+    def get_success_url(self):
+        post_id = self.get_object().post.id
+        return reverse('PostDetail', kwargs={'pk': post_id})

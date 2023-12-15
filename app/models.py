@@ -5,7 +5,7 @@ from django.db import models
 
 class Post(models.Model):
     title= models.CharField(max_length=15)
-    version= models.FloatField()
+    version= models.FloatField(unique=True)
     subtitle= models.CharField(max_length=30)
     body= models.TextField(max_length=300)
     author= models.ForeignKey(User, on_delete=models.CASCADE)
@@ -29,3 +29,4 @@ class Comment(models.Model):
 
     def __str__(self):
         return f'{self.author}: {self.message}'
+

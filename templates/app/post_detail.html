@@ -9,11 +9,14 @@
     <p>body: {{post.body}}</p>
     <p>Author: {{post.author}}</p>
     <h3>Comentarios:</h3>
-    <a href="{% url 'CreateComment' %}">comentar</a>
+    <a href="{% url 'CreateComment' post.id %}">comentar</a>
     <p>{{post.author.avatar.url}}</p>
     {% for comment in post.comments.all %}
         <img src="{{ comment.author.avatar.IMG.url }}" style="width: 40px">
         <p>{{ comment.author.username }}: {{ comment.message }}</p>
         <p>Fecha: {{ comment.date }}</p>
+        {% if user.is_superuser or user == comment.author %}
+            <a href="{% url 'DeleteComment' comment.id %}">Eliminar</a>
+        {% endif %}
     {% endfor %}
 {% endblock %}
