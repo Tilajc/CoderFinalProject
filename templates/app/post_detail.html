@@ -1,13 +1,13 @@
 {% extends "base.html" %}
 
 {% block main %}
-    <p>Date: {{post.date}}</p>
+    <p>Fecha: {{post.date}}</p>
     <img src="{{ post.img.url }}" style="height: 120px">
-    <h2>Title: {{post.title}}</h2>
-    <p>Subtitle: {{post.subtitle}}</p>
+    <h2>Titulo: {{post.title}}</h2>
+    <p>Subtitulo: {{post.subtitle}}</p>
     <p>Version: {{post.version}}</p>
-    <p>body: {{post.body}}</p>
-    <p>Author: {{post.author}}</p>
+    <p>Mensaje: {{post.body}}</p>
+    <p>Autor: {{post.author}}</p>
     <h3>Comentarios:</h3>
     <a href="{% url 'CreateComment' post.id %}">comentar</a>
     <p>{{post.author.avatar.url}}</p>
