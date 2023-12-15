@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.views.generic import CreateView, ListView
+from django.views.generic import CreateView, ListView, UpdateView, DeleteView
 
 from app.models import Post
 
@@ -18,15 +18,20 @@ class CreatePost(CreateView):
     template_name = "app/create_post.html"
     fields = ['title', 'version', 'subtitle', 'body', 'author']
 
-class posts(ListView):
+class Posts(ListView):
     model = Post
     template_name = "app/posts.html"
 
-def update_post(request):
-    return render(request, 'app/update_post.html')
+class UpdatePost(UpdateView):
+    model = Post
+    success_url = "/app/posts"
+    template_name = "app/create_post.html"
+    fields = ["title", 'version', 'subtitle', 'body', 'author']
 
-def delete_post(request):
-    return render(request, 'app/delete_post.html')
+class DeletePost(DeleteView):
+    model = Post
+    success_url = "/app/posts"
+    template_name = "app/delete_post.html"
 
 def comments(request):
     return render(request, 'app/comment.html')

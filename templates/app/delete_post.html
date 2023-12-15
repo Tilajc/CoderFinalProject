@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block main %}
+    <form method="POST">
+        {% csrf_token %}
+        <p>Estas por eliminar el curso {{ object }}, estas seguro?</p>
+        <input type="submit" value="eliminar">
+    </form>
+{% endblock %}
