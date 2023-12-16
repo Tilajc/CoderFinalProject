@@ -1,18 +1,20 @@
-<nav>
-    <a href="{% url 'Home' %}">Inicio</a>
-    <a href="{% url 'About' %}">Sobre mi</a>
-    <a href="{% url 'Posts' %}">Posts</a>
+<nav class="flex justify-around items-center bg-purple-200 h-32 sticky top-0">
+    <a href="{% url 'Home' %}" class="m-2 p-1 bg-purple-500 text-white rounded-md">Inicio</a>
+    <a href="{% url 'About' %}" class="m-2 p-1 bg-purple-500 text-white rounded-md">Sobre mi</a>
+    <a href="{% url 'Posts' %}" class="m-2 p-1 bg-purple-500 text-white rounded-md">Posts</a>
     {% if user.is_authenticated %}
         {% if user.avatar %}
+        <div class="flex flex-col items-center justify-center h-full w-32">
         <a href="{% url 'Profile' %}">
-            <img src="{{ user.avatar.IMG.url }}" style="height:40px">
+            <img src="{{ user.avatar.IMG.url }}" class="h-16 w-16 rounded-full object-cover">
         </a>
         {% else %}
-        <a href="{% url 'Profile' %}">Perfil</a>
+        <a href="{% url 'Profile' %}" class="m-2 p-1 bg-purple-500 text-white rounded-md">Perfil</a>
         {% endif %}
-    <a href="{% url 'Logout' %}">Cerrar Sesion</a>
+        <a href="{% url 'Logout' %}" class="m-2 p-1 bg-purple-500 text-white rounded-md">Cerrar Sesion</a>
+        </div>
     {% else %}
-    <a href="{% url 'Signup' %}">Crear Cuenta</a>
-    <a href="{% url 'Login' %}">Iniciar Sesion</a>
+    <a href="{% url 'Signup' %}" class="m-2 p-1 bg-purple-500 text-white rounded-md">Crear Cuenta</a>
+    <a href="{% url 'Login' %}" class="m-2 p-1 bg-purple-500 text-white rounded-md">Iniciar Sesion</a>
     {% endif %}
 </nav>

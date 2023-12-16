@@ -4,6 +4,6 @@
     <form action="" method="POST" enctype="multipart/form-data">
         {% csrf_token %}
         {{form.as_p}}
-        <input type="submit" value="Cambiar Avatar">
+        <input type="submit" value="Cambiar Avatar" class="m-2 p-1 bg-purple-500 text-white rounded-md">
     </form>
 {% endblock %}

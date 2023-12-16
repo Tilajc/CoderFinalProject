@@ -3,16 +3,18 @@
 {% block main %}
 {% if user.avatar %}
     <a href="{% url 'UpdateAvatar' %}">
-        <img src="{{ user.avatar.IMG.url }}">
+        <img src="{{ user.avatar.IMG.url }}" class="m-2 rounded-full h-64 w-64 object-cover">
     </a>
 {% else %}
-    <a href="{% url 'UpdateAvatar' %}">upload your avatar</a>
+    <a href="{% url 'UpdateAvatar' %}" class="m-2 p-1 bg-purple-500 text-white rounded-md">upload your avatar</a>
 {% endif %}
     <ul>
-        <li>username: {{user.username}}</li>
-        <li>first name: {{user.first_name}}</li>
-        <li>last name: {{user.last_name}}</li>
+        <li>Usuario: {{user.username}}</li>
+        <li>Nombre: {{user.first_name}}</li>
+        <li>Apellido: {{user.last_name}}</li>
     </ul>
-    <a href="{% url 'Update' %}">Edit</a>
-    <a href="{% url 'Delete' %}">Delete</a>
-{% endblock %}
+    <div>
+    <a href="{% url 'Update' %}" class="m-2 p-1 bg-purple-500 text-white rounded-md">Edit</a>
+    <a href="{% url 'Delete' %}" class="m-2 p-1 bg-purple-500 text-white rounded-md">Delete</a>
+    </div>
+    {% endblock %}

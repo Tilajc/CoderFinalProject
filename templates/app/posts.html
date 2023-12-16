@@ -2,20 +2,24 @@
 
 {% block main %}
     {% if user.is_superuser %}
-        <a href="{% url 'CreatePost' %}">Crear</a>
+        <a href="{% url 'CreatePost' %}" class="rounded-md bg-blue-500 p-2 m-2 text-white">Crear Post</a>
     {% endif %}
     {% if object_list %}
         {% for post in object_list %}
-            <h2>{{post.title}}</h2>
-            <img src="{{ post.img.url }}" style="height:40px">
-            <h3>{{post.subtitle}}</h3>
-            <a href="{% url 'PostDetail' post.id %}">Detalles</a>
-            {% if user.is_superuser %}
-                <a href="{% url 'UpdatePost' post.id %}">Editar</a>
-            {% endif %}
-            {% if user.is_superuser %}
-                <a href="{% url 'DeletePost' post.id %}">Eliminar</a>
-            {% endif %}
+            <div class="flex flex-col justify-center items-center p-8 m-4">
+                <h2 class="text-xl">{{post.title}}</h2>
+                <img src="{{ post.img.url }}" class="h-64 w-64 object-cover rounded-md">
+                <h3 class="m-2">{{post.subtitle}}</h3>
+                <div>
+                    <a href="{% url 'PostDetail' post.id %}" class="bg-purple-500 p-1 m-2 text-white rounded-md">Detalles</a>
+                    {% if user.is_superuser %}
+                        <a href="{% url 'UpdatePost' post.id %}" class="bg-purple-500 p-1 m-2 text-white rounded-md">Editar</a>
+                    {% endif %}
+                    {% if user.is_superuser %}
+                        <a href="{% url 'DeletePost' post.id %}" class="bg-red-500 p-1 m-2 text-white rounded-md">Eliminar</a>
+                    {% endif %}
+                </div>
+            </div>
         {% endfor %}
     {% else %}
         <p>No hay ningun post</p>

@@ -1,9 +1,9 @@
 {% extends "base.html" %}
 
 {% block main %}
-    <form method="POST">
+    <form method="POST" class="bg-purple-200 p-4 rounded-md">
         {% csrf_token %}
         <p>Estas por eliminar el comentario {{ object }}, estas seguro/a?</p>
-        <input type="submit" value="Eliminar">
+        <input type="submit" value="Eliminar" class="p-1 bg-red-500 rounded-md m-2 text-white">
     </form>
 {% endblock %}

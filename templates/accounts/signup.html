@@ -5,9 +5,9 @@
         {% csrf_token %}
         {{ form.as_p }}
         {% if page == 'update' %}
-            <input type="submit" value="Actualizar">
+            <input type="submit" value="Actualizar" class="m-2 p-1 bg-purple-500 text-white rounded-md">
         {% else %}
-            <input type="submit" value="Signup">
+            <input type="submit" value="Registrarse" class="m-2 p-1 bg-purple-500 text-white rounded-md">
         {% endif %}
     </form>
 {% endblock %}
