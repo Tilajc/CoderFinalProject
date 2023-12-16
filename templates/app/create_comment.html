@@ -4,7 +4,7 @@
     <form action="" method="POST" class="p-4 bg-gray-500 rounded-md">
         {% csrf_token %}
         <div class="mb-4">
-            <label for="{{ form.message.id_for_label }}" class="block text-sm font-medium m-2 text-white">Título</label>
+            <label for="{{ form.message.id_for_label }}" class="block text-sm font-medium m-2 text-white">Comentario</label>
             {{ form.message }}
         </div>
         <input type="submit" value="Comentar" class="m-2 p-1 bg-purple-500 text-white rounded-md">

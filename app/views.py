@@ -43,6 +43,11 @@ class UpdatePost(LoginRequiredMixin, UpdateView):
     template_name = "app/create_post.html"
     fields = ["title", 'version', 'subtitle', 'body', 'img']
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['is_edit'] = True
+        return context
+
 @method_decorator(user_passes_test(is_admin), name='dispatch')
 class DeletePost(LoginRequiredMixin, DeleteView):
     model = Post

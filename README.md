@@ -2,9 +2,13 @@
 
 La app es un blog sobre el desarrollo de un juego en el cual tiene los siguientes roles: 
 
-* Administrador: el cual puede realizar publicaciones en su blog, ver lista de usuarios y Eliminarlos, Comentar, y Autogestionarse.
+* Administrador: el cual puede realizar publicaciones en su blog, ver lista de usuarios y Eliminarlos desde el panel de administrador, Comentar, y Autogestionarse.
 * Usuario Registrado: comentar los blogs y Autogestionarse.
 * Usuario no Registrado: El cual puede ver los blogs.
+
+### Link to the video
+
+    https://youtu.be/eabgr0aF3zs
 
 ### Clone the app
 
@@ -16,6 +20,10 @@ La app es un blog sobre el desarrollo de un juego en el cual tiene los siguiente
     pip install django
     python manage.py makemigrations
     python manage.py migrate
+
+### Run Tailwind
+
+    npm run watch
 
 ### Run App
 
