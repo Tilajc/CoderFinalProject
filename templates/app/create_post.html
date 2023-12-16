@@ -1,9 +1,34 @@
 {% extends "base.html" %}
 
 {% block main %}
-    <form action="" method="POST" enctype="multipart/form-data">
+    <form action="" method="POST" enctype="multipart/form-data" class="p-4 bg-gray-500 rounded-md">
         {% csrf_token %}
-        {{form.as_p}}
-        <input type="submit" value="Crear Publicación" class="p-1 bg-red-500 rounded-md m-2 text-white">
+
+        <div class="mb-4">
+            <label for="{{ form.title.id_for_label }}" class="block text-sm font-medium m-2 text-white">Título</label>
+            {{ form.title }}
+        </div>
+
+        <div class="mb-4">
+            <label for="{{ form.version.id_for_label }}" class="block text-sm font-medium m-2 text-white">Versión</label>
+            {{ form.version }}
+        </div>
+
+        <div class="mb-4">
+            <label for="{{ form.subtitle.id_for_label }}" class="block text-sm font-medium m-2 text-white">Subtítulo</label>
+            {{ form.subtitle }}
+        </div>
+
+        <div class="mb-4">
+            <label for="{{ form.body.id_for_label }}" class="block text-sm font-medium m-2 text-white">Cuerpo</label>
+            {{ form.body }}
+        </div>
+
+        <div class="mb-4">
+            <label for="{{ form.img.id_for_label }}" class="block text-sm font-medium m-2 text-white">Imagen</label>
+            {{ form.img }}
+        </div>
+
+        <input type="submit" value="Crear Publicación" class="p-1 bg-purple-200 rounded-md m-2">
     </form>
 {% endblock %}

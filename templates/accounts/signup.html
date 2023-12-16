@@ -1,12 +1,47 @@
 {% extends 'base.html' %}
 
 {% block main %}
-    <form action="" method="POST">
+    <form action="" method="POST" class="p-4 bg-gray-500 rounded-md">
         {% csrf_token %}
-        {{ form.as_p }}
         {% if page == 'update' %}
+            <div class="mb-4">
+                <label for="{{ form.email.id_for_label }}" class="block text-sm font-medium m-2 text-white">Email</label>
+                {{ form.email }}
+            </div>
+            <div class="mb-4">
+                <label for="{{ form.first_name.id_for_label }}" class="block text-sm font-medium m-2 text-white">Nombre</label>
+                {{ form.first_name }}
+            </div>
+            <div class="mb-4">
+                <label for="{{ form.last_name.id_for_label }}" class="block text-sm font-medium m-2 text-white">Apellido</label>
+                {{ form.last_name }}
+            </div>
             <input type="submit" value="Actualizar" class="m-2 p-1 bg-purple-500 text-white rounded-md">
         {% else %}
+            <div class="mb-4">
+                <label for="{{ form.username.id_for_label }}" class="block text-sm font-medium m-2 text-white">Usuario</label>
+                {{ form.username }}
+            </div>
+            <div class="mb-4">
+                <label for="{{ form.email.id_for_label }}" class="block text-sm font-medium m-2 text-white">Email</label>
+                {{ form.email }}
+            </div>
+            <div class="mb-4">
+                <label for="{{ form.first_name.id_for_label }}" class="block text-sm font-medium m-2 text-white">Nombre</label>
+                {{ form.first_name }}
+            </div>
+            <div class="mb-4">
+                <label for="{{ form.last_name.id_for_label }}" class="block text-sm font-medium m-2 text-white">Apellido</label>
+                {{ form.last_name }}
+            </div>
+            <div class="mb-4">
+                <label for="{{ form.password.id_for_label }}" class="block text-sm font-medium m-2 text-white">Contraseña</label>
+                {{ form.password1 }}
+            </div>
+            <div class="mb-4">
+                <label for="{{ form.repeat_password.id_for_label }}" class="block text-sm font-medium m-2 text-white">Repetir Contraseña</label>
+                {{ form.password2 }}
+            </div>
             <input type="submit" value="Registrarse" class="m-2 p-1 bg-purple-500 text-white rounded-md">
         {% endif %}
     </form>

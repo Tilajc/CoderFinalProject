@@ -1,9 +1,16 @@
-{% extends 'base.html' %}
+{% extends "base.html" %}
 
 {% block main %}
-    <form action="" method="POST">
+    <form action="" method="POST" class="p-4 bg-gray-500 rounded-md">
         {% csrf_token %}
-        {{form.as_p}}
-        <input type="submit" value="Login" class="m-2 p-1 bg-purple-500 text-white rounded-md">
+        <div class="mb-4">
+            <label for="{{ form.username.id_for_label }}" class="block text-sm font-medium m-2 text-white">Usuario</label>
+            {{ form.username }}
+        </div>
+        <div class="mb-4">
+            <label for="{{ form.first_name.id_for_label }}" class="block text-sm font-medium m-2 text-white">Contraseña</label>
+            {{ form.password }}
+        </div>
+        <input type="submit" value="Iniciar sesión" class="m-2 p-1 bg-purple-500 text-white rounded-md">
     </form>
 {% endblock %}
