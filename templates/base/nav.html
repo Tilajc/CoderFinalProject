@@ -1,7 +1,7 @@
 <nav class="flex justify-around items-center bg-purple-200 h-32 sticky top-0">
-    <a href="{% url 'Home' %}" class="m-2 p-1 bg-purple-500 text-white rounded-md">Inicio</a>
-    <a href="{% url 'About' %}" class="m-2 p-1 bg-purple-500 text-white rounded-md">Sobre mi</a>
-    <a href="{% url 'Posts' %}" class="m-2 p-1 bg-purple-500 text-white rounded-md">Posts</a>
+    <a href="{% url 'Home' %}" class="m-2 p-1 bg-white rounded-md">Inicio</a>
+    <a href="{% url 'About' %}" class="m-2 p-1 bg-white rounded-md">Sobre mi</a>
+    <a href="{% url 'Posts' %}" class="m-2 p-1 bg-white rounded-md">Posts</a>
     {% if user.is_authenticated %}
         {% if user.avatar %}
         <div class="flex flex-col items-center justify-center h-full w-32">
@@ -14,7 +14,7 @@
         <a href="{% url 'Logout' %}" class="m-2 p-1 bg-purple-500 text-white rounded-md">Cerrar Sesion</a>
         </div>
     {% else %}
-    <a href="{% url 'Signup' %}" class="m-2 p-1 bg-purple-500 text-white rounded-md">Crear Cuenta</a>
+    <a href="{% url 'Signup' %}" class="m-2 p-1 bg-white rounded-md">Crear Cuenta</a>
     <a href="{% url 'Login' %}" class="m-2 p-1 bg-purple-500 text-white rounded-md">Iniciar Sesion</a>
     {% endif %}
 </nav>
