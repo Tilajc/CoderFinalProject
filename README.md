@@ -21,6 +21,10 @@ La app es un blog sobre el desarrollo de un juego en el cual tiene los siguiente
     python manage.py makemigrations
     python manage.py migrate
 
+### Install dependencies
+
+    npm i
+
 ### Run Tailwind
 
     npm run watch
